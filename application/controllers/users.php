@@ -33,8 +33,8 @@ class users extends CI_Controller {
 
   public function login(){
 
-        $this->load->library('session');
-       
+         $this->load->library('session');
+           
         if($this->session->userdata('logged_in') == "TRUE") {
             
            echo 1;
@@ -75,7 +75,17 @@ class users extends CI_Controller {
           }
         }   
       }
-
+    //logs out the user and re initializes the session varibles
+  function logout(){
+         $this->load->helper('url');
+        $this->load->library('session');
+        $newdata = array(
+        'logged_in' => FALSE);
+        $this->session->set_userdata($newdata);
+        
+        redirect('welcome');
+     
+      }
     public function dashboard(){
 
         $this->load->library('session');
@@ -85,6 +95,8 @@ class users extends CI_Controller {
             
              }
     }
+   
+
 	
 }
 

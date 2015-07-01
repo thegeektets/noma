@@ -96,11 +96,23 @@ $this->load->helper('url');
 				<h1><a href="<?php echo base_url(); ?>"> NOMA SANA </a></h1>
 			</div>
 
+			<?php 
+			 if($this->session->userdata('logged_in') == "TRUE") {
+			 	?>
 
+			<div class="logout"><a href="<?php echo base_url('index.php/users/logout') ?>"><i class="fi-torsos-all"></i> Logout</a></div>
+	
+			<div class="dashboard"><a href="<?php echo base_url('index.php/users/dashboard') ?>"><i class="fi-torsos-all"></i> Dashboard : <?php echo $this->session->userdata('username')?></a></div>
 			
+			 	<?php 
+			 }
+			 else{
+
+			 	?>
+   	
 			<div class="login"><a href="#" data-reveal-id="loginform"><i class="fi-torsos-all"></i> Login</a></div>
 			<div class="register"><a href="#" data-reveal-id="signupform"><i class="fi-torsos-all"></i> Sign Up</a></div>
-		
+			<?php }?>
 
 		
 		</div>

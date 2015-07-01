@@ -88,7 +88,7 @@
 			      	
 			        if (data == 1){
 			          	
-			          	window.location.assign('index.php/users/dashboard');
+			          	window.location.assign("<?php echo base_url('index.php/users/dashboard') ?>");
 			                 
 			        }
 			        else{

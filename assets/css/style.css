@@ -87,6 +87,30 @@ font-size:14px;
 	font-size:12px;
 	text-align:center;
 }
+.dashboard a{
+	margin-top: 10px;
+
+	width:150px;
+	padding:10px 20px;
+	background:#e30613;
+	float:right;
+	color:#fff;
+	font-weight:bold;
+	font-size:12px;
+	text-align:center;
+}
+.logout a{
+	margin-top: 10px;
+	width:100px;
+	padding:10px 20px;
+	background:#18453B;
+	float:right;
+	color:#fff;
+	font-weight:bold;
+	font-size:12px;
+	text-align:center;
+}
+
 
 .login-ico, .register-ico {padding-right:5px;}
 

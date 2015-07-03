@@ -1,0 +1,62 @@
+/*-----------------------------------------------------------------------------------*/
+/* MODAL CONTENT STYLES
+/*-----------------------------------------------------------------------------------*/
+
+.login a {
+	margin-top: 10px;
+	width:100px;
+	padding:10px 20px;
+	background:#18453B;
+	float:right;
+	color:#fff;
+	font-weight:bold;
+	font-size:12px;
+	text-align:center;
+	 font-family:"Josefin Sans", sans-serif;
+
+}
+
+.register a{
+	margin-top: 10px;
+
+	width:100px;
+	padding:10px 20px;
+	background:#e30613;
+	float:right;
+	color:#fff;
+	font-weight:bold;
+	font-size:12px;
+	text-align:center;
+	 font-family:"Josefin Sans", sans-serif;
+
+}
+.dashboard a{
+	margin-top: 10px;
+
+	width:150px;
+	padding:10px 20px;
+	background:#e30613;
+	float:right;
+	color:#fff;
+	font-weight:bold;
+	font-size:12px;
+	text-align:center;
+	 font-family:"Josefin Sans", sans-serif;
+
+}
+.logout a{
+	margin-top: 10px;
+	width:100px;
+	padding:10px 20px;
+	background:#18453B;
+	float:right;
+	color:#fff;
+	font-weight:bold;
+	font-size:12px;
+	text-align:center;
+	 font-family:"Josefin Sans", sans-serif;
+
+}
+
+
+.login-ico, .register-ico {padding-right:5px;}

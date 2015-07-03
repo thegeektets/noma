@@ -76,7 +76,7 @@ class users extends CI_Controller {
         }   
       }
     //logs out the user and re initializes the session varibles
-  function logout(){
+    public function logout(){
          $this->load->helper('url');
         $this->load->library('session');
         $newdata = array(
@@ -91,10 +91,51 @@ class users extends CI_Controller {
         $this->load->library('session');
 
            if($this->session->userdata('logged_in') == "TRUE") {
+                     $this->load->view('includes/dashheader');
+                     $this->load->view('dashboard/index');
+                     $this->load->view('includes/dashfooter');
             
             
              }
+             else{
+                     $this->load->view('includes/header');
+                     $this->load->view('index');
+                     $this->load->view('includes/footer');
+             }
     }
+
+    public function dictionary(){
+                    $data['dictionary'] = $this->users_model->dictionary();
+
+
+                     $this->load->library('session');
+                    
+                     $this->load->view('includes/dashheader');
+                     $this->load->view('dashboard/dictionary' , $data);
+                     $this->load->view('includes/dashfooter');
+    }
+
+    public function contributions(){
+                    $data['queries'] = $this->users_model->contributions();
+
+
+                     $this->load->library('session');
+                    
+                     $this->load->view('includes/dashheader');
+                     $this->load->view('dashboard/contributions' , $data);
+                     $this->load->view('includes/dashfooter');
+    }
+
+    public function add_new(){
+
+                    $this->load->library('session');
+                    
+                     $this->load->view('includes/dashheader');
+                     $this->load->view('dashboard/add_new');
+                     $this->load->view('includes/dashfooter');
+    }
+
+
    
 
 	

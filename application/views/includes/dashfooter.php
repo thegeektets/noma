@@ -30,6 +30,9 @@
     <!-- FLOT CATEGORIES PLUGIN - Used to draw bar charts -->
     <script src="<?php echo base_url("assets/dashboard/js/flot/jquery.flot.categories.min.js");?>" type="text/javascript"></script>
     <script type="text/javascript" src="<?php echo base_url("assets/dashboard/js/skycons/skycons.js");?>"></script>
+    <script type="text/javascript" src="<?php echo base_url("assets/js/script.js");?>"></script>
+
+
 
     <script type="text/javascript">
     $(function() {

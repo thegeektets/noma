@@ -42,7 +42,7 @@ class users extends CI_Controller {
         }
         else{
           $this->load->helper(array('form', 'url'));
-          $this->load->library('form_validation');
+          $this->load->library('form_validation');  
           $this->form_validation->set_rules('user', 'Username ', 'required'); 
           $this->form_validation->set_rules('pass', 'Password  ', 'required'); 
                           
@@ -53,11 +53,12 @@ class users extends CI_Controller {
         else {
            $passw = $this->users_model->logindetails();
 
-           if(md5($this->input->post("pass")) == $passw){
+           if(md5($this->input->post("pass")) == $passw['0']['password']){
               $this->load->library('session');
               
               $newdata = array(
                     'username'  => $this->input->post("user"),
+                    'status'  => $passw['0']['status'],
                     'logged_in' => TRUE
                    );
             $this->session->set_userdata($newdata);
@@ -68,8 +69,7 @@ class users extends CI_Controller {
             else{
                 
                   echo 0;
-                   echo 'f'.$passw;
-                
+                 
               }
             
           }
@@ -90,16 +90,21 @@ class users extends CI_Controller {
 
         $this->load->library('session');
 
+        $data['words'] = $this->users_model->count_words();
+        $data['contributions'] = $this->users_model->count_contributions();
+        $data['users'] = $this->users_model->count_users();
+
+
            if($this->session->userdata('logged_in') == "TRUE") {
                      $this->load->view('includes/dashheader');
-                     $this->load->view('dashboard/index');
+                     $this->load->view('dashboard/index' , $data);
                      $this->load->view('includes/dashfooter');
             
             
              }
              else{
                      $this->load->view('includes/header');
-                     $this->load->view('index');
+                     $this->load->view('index',$data);
                      $this->load->view('includes/footer');
              }
     }
@@ -135,8 +140,14 @@ class users extends CI_Controller {
                      $this->load->view('includes/dashfooter');
     }
 
-
-   
+    public function contribute(){
+                     $this->load->library('session');
+                    
+                     $this->load->view('includes/dashheader');
+                     $this->load->view('dashboard/contribute');
+                     $this->load->view('includes/dashfooter');
+    }
+ 
 
 	
 }

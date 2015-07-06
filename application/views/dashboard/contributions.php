@@ -42,14 +42,20 @@
                                     </a>
                                     <ul>
 
+                                      <?php 
+                                     if($this->session->userdata('status') == 1){
+
+                                        ?>
                                         <li>
                                             <a href="<?php echo base_url('index.php/users/add_new'); ?>">ADD NEW</a>
                                         </li>
+
+                                        <?php } ?>
                                         <li>
                                             <a id='menu-select' href="<?php echo base_url('index.php/users/contributions'); ?>">CONTRIBUTIONS</a>
                                         </li>
                                          <li>
-                                            <a href="sidebar-fixed.html">CONTRIBUTE</a>
+                                                 <a href="<?php echo base_url('index.php/users/contribute'); ?>">CONTRIBUTE</a>
                                         </li>  
                                      
                         
@@ -147,21 +153,23 @@
 
                 <!-- Container Begin -->
                 <div class="row" style="margin-top:-20px">
+                        <div id="message"></div>
                    
                        <div style="height:100%">
-                        
-                        <?php for ($i=0; $i < count($queries) ; $i++) { 
+                           <?php for ($i=0; $i < count($queries) ; $i++) { 
                          ?>
-                            <h4><?php echo $queries[$i]['word'];?></h4>
-                            <p> <?php echo $queries[$i]['definition'];?> </p>
-
+                            <h4 value="<?php echo $queries[$i]['word'];?>" id="word"><?php echo $queries[$i]['word'];?></h4>
+                            <p value="<?php echo $queries[$i]['definition'];?>" id="definition"> <?php echo $queries[$i]['definition'];?> </p>
+                             <?php 
+                                     if($this->session->userdata('status') == 1){
+                            ?>
                             <span style="float:right">
-                                 <button class="btn " style="background:#18453B; font-family: 'Josefin Sans' sans-serif ;"> Add to dictionary</button>
-                                 <button class="btn " style="background:#e30613; font-family: 'Josefin Sans', sans-serif "> Decline</button>
+                                 <button class="btn " onclick="approve('<?php echo $queries[$i]['_id']['$oid']; ?>')" style="background:#18453B; font-family: 'Josefin Sans' sans-serif ;"> Add to dictionary</button>
+                                 <button class="btn " onclick="decline('<?php echo $queries[$i]['_id']['$oid']; ?>')" style="background:#e30613; font-family: 'Josefin Sans', sans-serif ; "> Decline</button>
                              </span>
 
                         <hr/>
-                       <?php } ?>
+                       <?php } } ?>
 
                     </div>
 

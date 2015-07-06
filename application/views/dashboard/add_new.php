@@ -41,14 +41,20 @@
                                     </a>
                                     <ul>
 
+                                              <?php 
+                                     if($this->session->userdata('status') == 1){
+
+                                        ?>
                                         <li>
-                                            <a id='menu-select' href="<?php echo base_url('index.php/users/add_new'); ?>">ADD NEW</a>
+                                            <a href="<?php echo base_url('index.php/users/add_new'); ?>">ADD NEW</a>
                                         </li>
+
+                                        <?php } ?>
                                         <li>
                                             <a  href="<?php echo base_url('index.php/users/contributions'); ?>">CONTRIBUTIONS</a>
                                         </li>
                                          <li>
-                                            <a href="sidebar-fixed.html">CONTRIBUTE</a>
+                                            <a href="<?php echo base_url('index.php/users/contribute'); ?>">CONTRIBUTE</a>
                                         </li>  
                                      
                         
@@ -150,22 +156,23 @@
                                  <div class="row">
                             
                                     <div class="large-9 columns">
-                                        <form data-abide>
+                                    <div id="addmessage"></div>
+                                        <form data-abide id="new-word" name="new-word" onsubmit="return add_new();">
                                             <div class="name-field">
                                                 <label>Sheng Word <small>required</small>
-                                                    <input type="text" required pattern="[a-zA-Z]+">
+                                                    <input type="text" required pattern="[a-zA-Z]+" name="word" id="word">
                                                 </label>
                                                 <small class="error"> A Word is required and must be a string.</small>
                                             </div>
                                             <div class="7-field">
                                                 <label>Definition <small>required</small>
-                                                    <textarea type="text" required>
+                                                    <textarea type="text" required name="definition" id="definition">
                                                     </textarea>
                                                 </label>
                                                 <small class="error">An definition is required.</small>
                                             </div>
                                            
-                                            <button type="submit" class="tiny">Submit</button>
+                                            <button  type="submit" class="tiny">Submit</button>
                                         </form>
 
 

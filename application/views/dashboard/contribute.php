@@ -17,8 +17,7 @@
                     <div id="tree-wrap">
                         <!-- Profile -->
                         <div class="profile">
-                          <h3><a href='<?php echo base_url();?>' style="color:#fff">NOMA SANA</a></h3>
-
+                                <h3><a href='<?php echo base_url();?>' style="color:#fff">NOMA SANA</a></h3>
 
                         </div>
                         <!-- End of Profile -->
@@ -34,14 +33,15 @@
                                     </a>
 
                                 </li>
-                                <li>
+                                <li >
                                     <a class="tooltip-tip" href="#">
                                         <i class=" icon-window"></i>
                                         <span>SHENG</span>
 
                                     </a>
                                     <ul>
-                                    <?php 
+
+                                             <?php 
                                      if($this->session->userdata('status') == 1){
 
                                         ?>
@@ -51,12 +51,10 @@
 
                                         <?php } ?>
                                         <li>
-                                           <a href="<?php echo base_url('index.php/users/contributions'); ?>">CONTRIBUTIONS</a>
-                              
+                                            <a  href="<?php echo base_url('index.php/users/contributions'); ?>">CONTRIBUTIONS</a>
                                         </li>
-                                        <li>
-                                                <a href="<?php echo base_url('index.php/users/contribute'); ?>">CONTRIBUTE</a>
-                             
+                                         <li>
+                                            <a id='menu-select' href="<?php echo base_url('index.php/users/contribute'); ?>">CONTRIBUTE</a>
                                         </li>  
                                      
                         
@@ -66,7 +64,7 @@
                               
 
                                 <li class="active">
-                                    <a id="menu-select" class="tooltip-tip" href="<?php echo base_url('index.php/users/dictionary'); ?>" title="Mail">
+                                    <a class="tooltip-tip" href="<?php echo base_url('index.php/users/dictionary'); ?>" title="Mail">
                                         <i class=" icon-mail"></i>
                                         <span>SHENG DICTIONARY</span>
 
@@ -144,7 +142,7 @@
                 <ul class="breadcrumbs">
                     <li><a href="#"><span class="entypo-home"></span></a>
                     </li>
-                    <li>Dictionary
+                    <li> Contribute
                     </li>
                    
                 </ul>
@@ -154,30 +152,34 @@
 
                 <!-- Container Begin -->
                 <div class="row" style="margin-top:-20px">
-                      <div id="message"></div>
                    
-                       <div style="height:100%">
-                        
-                        <?php for ($i=0; $i < count($dictionary) ; $i++) { 
-                         ?>
-                            <h4><?php echo $dictionary[$i]['word'];?></h4>
-                            <p> <?php echo $dictionary[$i]['definition_1'];?> </p>
+                                 <div class="row">
+                            
+                                    <div class="large-9 columns">
+                                    <div id="addmessage"></div>
+                                        <form data-abide id="new-word" name="contribute" onsubmit="return new_contribution();">
+                                            <div class="name-field">
+                                                <label>Sheng Word <small>required</small>
+                                                    <input type="text" required pattern="[a-zA-Z]+" name="word" id="word">
+                                                </label>
+                                                <small class="error"> A Word is required and must be a string.</small>
+                                            </div>
+                                            <div class="7-field">
+                                                <label>Definition <small>required</small>
+                                                    <textarea type="text" required name="definition" id="definition">
+                                                    </textarea>
+                                                </label>
+                                                <small class="error">An definition is required.</small>
+                                            </div>
+                                           
+                                            <button  type="submit" class="tiny">Submit</button>
+                                        </form>
 
-                             <?php 
-                                                    
-                                     if($this->session->userdata('status') == 1){
-                            ?>
-                            <span style="float:right">
-                                      <button class="btn " onclick="delete_word('<?php echo $dictionary[$i]['_id']['$oid']; ?>')" style="background:#e30613; font-family: 'Josefin Sans', sans-serif ; "> Delete</button>
-                              </span>
-
-                        <hr/>
-                       <?php }  ?>
-
-                           <?php } ?>
 
 
-                    </div>
+
+                                    </div>
+                                </div>
 
 
                 <footer>

@@ -6,6 +6,8 @@ class users extends CI_Controller {
     {
     parent::__construct();
     $this->load->model('users_model');
+     $this->load->helper('user');
+    $this->load->helper('url');
        
     }
 
@@ -149,6 +151,8 @@ class users extends CI_Controller {
     }
  
 
-	
+
+
+    
 }
 

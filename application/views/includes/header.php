@@ -4,6 +4,8 @@
 <head>
 <?php
 $this->load->helper('url');
+
+
 ?>
 
 	<meta charset="utf-8">
@@ -27,6 +29,14 @@ $this->load->helper('url');
 	
     <!-- FAVICON-->
 	<link rel="shortcut icon" href="images/favicon.ico">
+
+	<script type="text/javascript">
+    function auth_popup(url, width, height){
+	var left = (screen.width/2)-(width/2);
+	var top = (screen.height/2)-(height/2);
+	window.open (url,"auth","toolbar=no,location=no,directories=no,status=no,scrollbars=no,menubar=0,resizable=1,width="+width+",height="+height+',top='+top+',left='+left);
+    }
+	</script>
 
    
 
@@ -52,7 +62,16 @@ $this->load->helper('url');
 			 Login</button>
 			<div class="space10"></div>
 			<p><a href="#">Forgot password?</a> Click here.</p>
-		</fieldset>
+				
+
+				<a href="<?php echo base_url('index.php/hauth/login/Facebook') ?>" 
+				title="connect with facebook">Connect with facebook</a> or
+					
+				<a href="<?php echo base_url('index.php/hauth/login/Google') ?>">
+				Connect with Google</a>
+				
+			
+</fieldset>
 </form>
 
 <a class="close-reveal-modal"><i class="fi-cross"></i>Close</a>
